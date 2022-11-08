@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 | Riddles and JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <style>
+        @font-face{
+            font-family:squid;
+            src:url(fonts/GameOfSquids.ttf);
+        }
+        body{
+            font-family: 'squid';
+            color:blueviolet;
+        }
+    </style>
+
+</head>
+<body>
+    <div id= "container">
+        <h1>Riddles and JavaScript Lab</h1>
+
+        <ol>
+            <li>What has to be broken before you can use it?
+                <br>
+                <button onclick="showAnswer('answer','An Egg')" >Click here for answer</button>
+                <span id="answer"></span>
+                <hr>
+            </li>
+            <li>I'm tall when I'm young, and I'm short when I'm old. What am I?
+                <br>
+                <button onclick="showAnswer('answer2','A Candle')">Click here for answer</button>
+                <span id="answer2"></span>
+                <hr>
+            </li>
+            <li>What month of the year has 28 days?
+                <br>
+                <button onclick="showAnswer('answer3','All of them')">Click here for answer</button>
+                <span id="answer3"></span>
+                <hr>
+            </li>
+            <li>What is full of holes but still holds water?
+                <br>
+                <button onclick="showAnswer('answer4','A sponge')">Click here for answer</button>
+                <span id="answer4"></span>
+                <hr>
+            </li>
+            <li>What question can you never answer yes to?
+                <br>
+                <button onclick="showAnswer('answer5','Are you asleep yet?')">Click here for answer</button>
+                <span id="answer5"></span>
+            </li>
+            <li>What is always in front of you but can't be seen?
+            <br>
+            <p>The future.</p></li>
+            <li>There's a one-story house in which everything is yellow. Yellow walls, yellow doors, yellow furniture. What color are the stairs?
+            <br>
+            <p>There aren't any--it's a one-story house.</p></li>
+            <li>What can you break, even if you never pick it up or touch it?
+            <br>
+            <p>A promise</p></li>
+            <li>What goes up but never comes down?
+            <br>
+            <p>Your age.</p></li>
+            <li>A man who was outside in the rain without an umbrella or hat didn't get a single hair on his head wet. Why?
+            <br>
+            <p>He was bald.</p></li>
+        </ol>
+    <h2 style="color:blue; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Thank you for checking out this riddle page!</h2>
+    <img src="Images/riddles.webp" alt="Picture of Riddles" width="500">
+    </div>
+    <script src="js/riddles.js"></script>
+</body>
+</html>
