@@ -46,7 +46,7 @@ function playGame(playersChoice){
             else if(cpuChoice == 1) {
                 alert("CPU chose Paper. CPU wins.");
             }
-            else(cpuChoice == 2) {
+            else(cpuChoice == 2); {
                 alert("CPU chose Scissors. You win!");
             }
         break;
@@ -58,7 +58,7 @@ function playGame(playersChoice){
             else if(cpuChoice == 1) {
                 alert("CPU chose Paper. It's a tie.");
             }
-            else(cpuChoice == 2) {
+            else(cpuChoice == 2); {
                 alert("CPU chose Scissors. CPU wins.");
             }
         break;
@@ -70,7 +70,7 @@ function playGame(playersChoice){
             else if(cpuChoice == 1) {
                 alert("CPU chose Paper. You win!");
             }
-            else(cpuChoice == 2) {
+            else(cpuChoice == 2); {
                 alert("CPU chose Scissors. It's a tie.");
             }
         break;
