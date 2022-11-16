@@ -1,4 +1,9 @@
 //Array of words
+var canvas = document.getElementById("c");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.strokeStyle = "black";
+
 var rps = [];
 rps[0] = `Rock` 
 rps[1] = `Paper`
