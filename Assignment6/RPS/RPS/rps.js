@@ -1,33 +1,4 @@
 //Array of words
-var canvas = document.getElementById("c");
-var ctx = canvas.getContext("2d");
-
-
-
-var result = "Select a button from above to choose."
-
-function draw(){
-    ctx.font = "20px Arial";
-    ctx.fillStyle = "blue;";
-    ctx.fillText("Welcome to RPS Game!",200,280);
-    
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    ctx.font = "30px Arial";
-    ctx.textAlign = "center";
-    ctx.fillStyle = "blue";
-    ctx.fillText ("pChoice",canvas.width/2,100);
-    ctx.fillText ("cChoice",canvas.width/2,325)
-
-    ctx.fillText (result,canvas.width/2,525)
-
-}
-
-
-
-
-
-
-
 var rps = [];
 rps[0] = `Rock` 
 rps[1] = `Paper`
@@ -50,7 +21,7 @@ btn[1].addEventListener(`click`, function(e){
 })
 btn[2].addEventListener(`click`, function(e){
     play(2)
-});
+})
 
 //Play function accepts an integer
 //generates an integer 0-2
@@ -60,27 +31,23 @@ function play(pChoice)
     var cChoice = Math.floor(Math.random()*2.999999)
     
     alert(rps[pChoice] + " " + rps[cChoice]) 
-    console.log(cpuChoice);
 
     switch(pChoice){
         case 0:
             if(cChoice === 0)
             {
                 //display a tie
-                //alert(`You Tied`)
-                result = "CPU chose Rock. You Tied!"
+                alert(`You Tied`)
             }
             else if(cChoice === 1)
             {
                 //display a loss
-                //alert(`You Lost`)
-                result = "CPU chose Paper. You Lost!"
+                alert(`You Lost`)
             }
             else
             {
                 //display a win
-                //alert(`You Won`)
-                result = "CPU chose Scissors. You won!"
+                alert(`You Won`)
             }
             break;
 
@@ -88,20 +55,17 @@ function play(pChoice)
                 if(cChoice === 0)
                 {
                     //display a tie
-                    //alert(`You Win`)
-                    result = "CPU chose Rock. You Win!"
+                    alert(`You Win`)
                 }
                 else if(cChoice === 1)
                 {
                     //display a loss
-                    //alert(`Tie`)
-                    result = "CPU chose Paper. Tie!"
+                    alert(`Tie`)
                 }
                 else
                 {
                     //display a win
-                    //alert(`You Lost`)
-                    result = "CPU chose Scissors. You Lost!"
+                    alert(`You Lost`)
                 } 
             break;
 
@@ -109,20 +73,17 @@ function play(pChoice)
                 if(cChoice === 0)
                 {
                     //display a tie
-                    //alert(`You Lost`)
-                    result = "CPU chose Rock. You Lost!"
+                    alert(`You Lost`)
                 }
                 else if(cChoice === 1)
                 {
                     //display a loss
-                    //alert(`You Win`)
-                    result = "CPU chose Paper. You Win!"
+                    alert(`You Win`)
                 }
                 else
                 {
                     //display a win
-                    //alert(`You Tie`)
-                    result = "CPU chose Scissors. You Tie!"
+                    alert(`You Tie`)
                 }
              break;
     }
