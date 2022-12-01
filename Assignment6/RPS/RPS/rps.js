@@ -1,3 +1,8 @@
+var canvas = document.querySelector("canvas");
+var ctx = canvas.getContext("2d");
+
+
+
 //Array of words
 var rps = [];
 rps[0] = `Rock` 
