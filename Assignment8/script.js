@@ -122,7 +122,8 @@ function drawFuelBar(){
         ctx.fillRect(start,30,currentBarWidth,10);
     }
 }
-//ctx.drawImage(back,) the image behind the fuel bar 
+ctx.beginPath();
+    
 
 function drawResults(){
     if(carPos + carWidth > finish){
