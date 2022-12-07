@@ -8,7 +8,7 @@ var finish = 956;
 
 //car variables
 var carPos = 2;
-var startFuel = randomNumber(canvas.width,600);
+var startFuel = randomNumber(canvas.width, 600);
 var fuel = startFuel;
 var fuelBarWidth = 512;
 var speed = 3;
@@ -27,160 +27,160 @@ var frames = fps;
 var carSprite = new Image();
 carSprite.src = "images/car.png"
 
-var back = new Image();
-back.src = "images/checker.jpg";
+var bar = new Image();
+bar.src = "images/checker.jpg"
 
-carSprite.onload = function(){
+
+carSprite.onload = function () {
     main();
 }
-
+bar.onload = function () {
+    main();
+}
 
 //add the event handler for starting the game
 document.addEventListener("keydown", pressSpace);
 
 //add the key handler function here 
-function pressSpace(e){
-    if(e.keyCode == 32 && gameOver){
+function pressSpace(e) {
+    if (e.keyCode == 32 && gameOver) {
         gameOver = false;
     }
-    if(fuel <= 0){
+    if (fuel <= 0) {
         restartGame();
     }
 }
 
 
-function main(){
-//clear the canvas
-ctx.clearRect(0,0,canvas.width,canvas.height);
+function main() {
+    //clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-if(gameOver){
-    //Main Menu Screen
-    ctx.save();
-    ctx.fillStyle = "black";
-    ctx.font = "35px Lucida Sans";
-    ctx.textAlign = "center";
-    ctx.fillText("The Car Game That is Not Really a Car Game!",canvas.width/2, canvas.height/2 - 30);
-    ctx.fillStyle = "white"
-    ctx.font = "15px Lucida Sans";
-    ctx.fillText("Press Space to Start",canvas.width/2, canvas.height/2 + 20);
-    ctx.restore();
-}else{
-    if(!gameOver && seconds > 0){
-        runStartTimer();
-        drawStartTimer();
-    }else{
-        if(fuel>0){
-            //update the car's position
-            carPos += speed;
-            fuel -= speed;
+    if (gameOver) {
+        //Main Menu Screen
+        ctx.save();
+        ctx.fillStyle = "black";
+        ctx.font = "35px Lucida Sans";
+        ctx.textAlign = "center";
+        ctx.fillText("The Car Game That is Not Really a Car Game!", canvas.width / 2, canvas.height / 2 - 30);
+        ctx.fillStyle = "white"
+        ctx.font = "15px Lucida Sans";
+        ctx.fillText("Press Space to Start", canvas.width / 2, canvas.height / 2 + 20);
+        ctx.restore();
+    } else {
+        if (!gameOver && seconds > 0) {
+            runStartTimer();
+            drawStartTimer();
+        } else {
+            if (fuel > 0) {
+                //update the car's position
+                carPos += speed;
+                fuel -= speed;
             }
+        }
+        drawStartFinishLine();
+
+        drawCar();
+
+
+
+        drawFuelBar();
+
+        if (fuel <= 0 || carPos + carWidth > finish) {
+            drawResults();
+        } else if (carPos + carWidth == finish) {
+            drawResults();
+        }
     }
-    drawStartFinishLine();
 
-    drawCar();
-    
-    
-    
-    drawFuelBar();
-    
-    if(fuel<=0 || carPos + carWidth > finish){
-        drawResults();
-    }else if(carPos + carWidth == finish){
-        drawResults();
-    }
-    createCanvasBoundary(carPos,canvas.height,50,"speed")
-}
-
-//refresh the main function 
-timer = requestAnimationFrame(main);
+    //refresh the main function 
+    timer = requestAnimationFrame(main);
 
 }
 
-function drawStartFinishLine(){
-//draw start line
-ctx.fillStyle = "white";
-ctx.fillRect(start,60,25,660);
-//draw finish line
-ctx.fillRect(finish,60,25,660);
-}
-
-function drawCar(){
-//draw car
-//ctx.fillRect(carPos,canvas.height/2,40,20);
-ctx.drawImage(carSprite,carPos,canvas.height/2,carWidth,50);
-}
-
-function drawFuelBar(){
-    //draw fuel bar hud
-    var currentBarWidth = fuelBarWidth * (fuel/startFuel);
+function drawStartFinishLine() {
+    //draw start line
     ctx.fillStyle = "white";
-    ctx.fillRect(start,30,fuelBarWidth,10);
+    ctx.fillRect(start, 60, 25, 660);
+    //draw finish line
+    ctx.fillRect(finish, 60, 25, 660);
+}
+
+function drawCar() {
+    //draw car
+    //ctx.fillRect(carPos,canvas.height/2,40,20);
+    ctx.drawImage(carSprite, carPos, canvas.height / 2, carWidth, 50);
+}
+
+function drawFuelBar() {
+    //draw fuel bar hud
+    var currentBarWidth = fuelBarWidth * (fuel / startFuel);
+    ctx.drawImage(bar,start,30,fuelBarWidth,10);
+    ctx.fillStyle = "white";
+    //ctx.fillRect(start, 30, fuelBarWidth, 10);
     ctx.font = "25px Lucida Sans";
-    ctx.fillText("Fuel",start,25);    
-    if(fuel>0){
+    ctx.fillText("Fuel", start, 25);
+    if (fuel > 0) {
         ctx.fillStyle = "red";
-        ctx.fillRect(start,30,currentBarWidth,10);
+        ctx.fillRect(start, 30, currentBarWidth, 10);
     }
 }
-ctx.beginPath();
-    
 
-function drawResults(){
-    if(carPos + carWidth > finish){
+
+function drawResults() {
+    if (carPos + carWidth > finish) {
         ctx.save();
         ctx.fillStyle = "white";
         ctx.font = "25px Lucida Sans";
         ctx.textAlign = "center";
-        ctx.fillText("You made it to the finish... You win!!", canvas.width/2,canvas.height/2)
+        ctx.fillText("You made it to the finish... You win!!", canvas.width / 2, canvas.height / 2)
         ctx.restore();
-    }else{
+    } else {
         ctx.save();
         ctx.fillStyle = "white";
         ctx.font = "25px Lucida Sans";
         ctx.textAlign = "center";
-        ctx.fillText("You ran out of fuel... You lose!!", canvas.width/2,canvas.height/2) 
+        ctx.fillText("You ran out of fuel... You lose!!", canvas.width / 2, canvas.height / 2)
         ctx.restore();
     }
-    }
+}
 
 //utility function
-function randomNumber(high,low){
-return Math.round(Math.random() * (high-low) + low);
+function randomNumber(high, low) {
+    return Math.round(Math.random() * (high - low) + low);
 }
 
-function restartGame(){
+function restartGame() {
     location.reload();
 }
 
-function runStartTimer(){
+function runStartTimer() {
     frames -= 1;
-    if(frames < 0){
+    if (frames < 0) {
         frames = fps;
         seconds -= 1;
     }
 }
 
-function drawStartTimer(){
-    if(Math.ceil(seconds) > 0){
+function drawStartTimer() {
+    if (Math.ceil(seconds) > 0) {
         ctx.save();
         ctx.fillStyle = "white";
         ctx.font = "30px Lucida Sans";
         ctx.textAlign = "center"
-        ctx.fillText(seconds,canvas.width/2,canvas.height/2);
+        ctx.fillText(seconds, canvas.width / 2, canvas.height / 2);
         ctx.restore();
-    }else{
+    } else {
         ctx.save();
         ctx.fillStyle = "black";
         ctx.font = "30px Lucida Sans";
         ctx.textAlign = "center"
-        ctx.fillText("GO!",canvas.width/2,canvas.height/2);
+        ctx.fillText("GO!", canvas.width / 2, canvas.height / 2);
         ctx.restore();
     }
 
 }
 
-function createCanvasBoundary(position,canvasSize,objectRadius,direction){
-    if(position == finish){
-        stop();
-    }
+if (carPos > finish) {
+    speed = 0;
 }
