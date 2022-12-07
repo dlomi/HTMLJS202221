@@ -27,6 +27,9 @@ var frames = fps;
 var carSprite = new Image();
 carSprite.src = "images/car.png"
 
+var back = new Image();
+back.src = "images/checker.jpg";
+
 carSprite.onload = function(){
     main();
 }
@@ -54,9 +57,12 @@ if(gameOver){
     //Main Menu Screen
     ctx.save();
     ctx.fillStyle = "black";
-    ctx.font = "30px Arial";
+    ctx.font = "35px Lucida Sans";
     ctx.textAlign = "center";
-    ctx.fillText("Press Space to Start",canvas.width/2, canvas.height/2);
+    ctx.fillText("The Car Game That is Not Really a Car Game!",canvas.width/2, canvas.height/2 - 30);
+    ctx.fillStyle = "white"
+    ctx.font = "15px Lucida Sans";
+    ctx.fillText("Press Space to Start",canvas.width/2, canvas.height/2 + 20);
     ctx.restore();
 }else{
     if(!gameOver && seconds > 0){
@@ -79,7 +85,10 @@ if(gameOver){
     
     if(fuel<=0 || carPos + carWidth > finish){
         drawResults();
+    }else if(carPos + carWidth == finish){
+        drawResults();
     }
+    createCanvasBoundary(carPos,canvas.height,50,"speed")
 }
 
 //refresh the main function 
@@ -89,10 +98,10 @@ timer = requestAnimationFrame(main);
 
 function drawStartFinishLine(){
 //draw start line
-ctx.fillStyle = "black";
-ctx.fillRect(start,50,10,650);
+ctx.fillStyle = "white";
+ctx.fillRect(start,60,25,660);
 //draw finish line
-ctx.fillRect(finish,50,10,650);
+ctx.fillRect(finish,60,25,660);
 }
 
 function drawCar(){
@@ -104,31 +113,31 @@ ctx.drawImage(carSprite,carPos,canvas.height/2,carWidth,50);
 function drawFuelBar(){
     //draw fuel bar hud
     var currentBarWidth = fuelBarWidth * (fuel/startFuel);
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillRect(start,30,fuelBarWidth,10);
-    ctx.font = "25px Arial";
-    ctx.fillText("Fuel",start,25);
+    ctx.font = "25px Lucida Sans";
+    ctx.fillText("Fuel",start,25);    
     if(fuel>0){
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "red";
         ctx.fillRect(start,30,currentBarWidth,10);
     }
-
 }
+//ctx.drawImage(back,) the image behind the fuel bar 
 
 function drawResults(){
     if(carPos + carWidth > finish){
         ctx.save();
-        ctx.fillStyle = "black";
-        ctx.font = "25px Arial";
+        ctx.fillStyle = "white";
+        ctx.font = "25px Lucida Sans";
         ctx.textAlign = "center";
-        ctx.fillText("You made it to the finish... You win!!", canvas.width/2,canvas.width/2)
+        ctx.fillText("You made it to the finish... You win!!", canvas.width/2,canvas.height/2)
         ctx.restore();
     }else{
         ctx.save();
-        ctx.fillStyle = "black";
-        ctx.font = "25px Arial";
+        ctx.fillStyle = "white";
+        ctx.font = "25px Lucida Sans";
         ctx.textAlign = "center";
-        ctx.fillText("You ran out of fuel... You lose!!", canvas.width/2,canvas.width/2) 
+        ctx.fillText("You ran out of fuel... You lose!!", canvas.width/2,canvas.height/2) 
         ctx.restore();
     }
     }
@@ -153,18 +162,24 @@ function runStartTimer(){
 function drawStartTimer(){
     if(Math.ceil(seconds) > 0){
         ctx.save();
-        ctx.fillStyle = "black";
-        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.font = "30px Lucida Sans";
         ctx.textAlign = "center"
         ctx.fillText(seconds,canvas.width/2,canvas.height/2);
         ctx.restore();
     }else{
         ctx.save();
         ctx.fillStyle = "black";
-        ctx.font = "30px Arial";
+        ctx.font = "30px Lucida Sans";
         ctx.textAlign = "center"
         ctx.fillText("GO!",canvas.width/2,canvas.height/2);
         ctx.restore();
     }
 
+}
+
+function createCanvasBoundary(position,canvasSize,objectRadius,direction){
+    if(position == finish){
+        stop();
+    }
 }

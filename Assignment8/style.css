@@ -1,8 +1,9 @@
 html,body{
     display:flex;
     justify-content:center;
+    background-image:url("images/Rbackground.png");
 }
 canvas{
-    border: 1px solid black;
+    border: 2px solid black;
     background-image:url("images/pbackground.jpg");
 }
