@@ -9,11 +9,14 @@ html,body{
     background-color:midnightblue;
 }
 canvas{
-    border:1px solid white;
+    border:2px solid white;
+    background-color:black;
 }
 header{
     text-align:center;
-    border:1px solid white;
+    border:2px solid white;
+    font-family: 'VT323', monospace;
+    font-size:large;
 }
 footer{
     text-align:center;
