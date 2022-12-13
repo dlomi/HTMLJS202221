@@ -1,0 +1,20 @@
+html,body{
+    display:flex;
+    justify-content:center;
+    background-image:url("images/background.jpg");
+}
+#container{
+    margin:auto;
+    color:white;
+    background-color:midnightblue;
+}
+canvas{
+    border:1px solid white;
+}
+header{
+    text-align:center;
+    border:1px solid white;
+}
+footer{
+    text-align:center;
+}
