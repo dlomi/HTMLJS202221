@@ -51,7 +51,7 @@ function PlayerShip() {
     this.drawShip = function () {
         ctx.save();
         ctx.translate(this.x, this.y);
-        ctx.fillStyle = "red";
+        //ctx.fillStyle = "red";
         ctx.beginPath();
         ctx.moveTo(0, -10);
         ctx.lineTo(10, 10);
@@ -210,7 +210,7 @@ function Asteroid() {
     this.x = randomRange(canvas.width - this.radius, this.radius);
     this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height;
     this.vy = randomRange(10, 5);
-    this.color = "white";
+    //this.color = "white";
 
     this.drawAsteroid = function () {
         //commands to draw asteroids
