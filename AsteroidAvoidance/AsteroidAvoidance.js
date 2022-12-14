@@ -12,12 +12,12 @@ var highScore = 0;
 
 //game sprites
 var shipSprite = new Image();
-shipSprite = "images/ship.png";
+shipSprite.src = "images/ship.png";
 shipSprite.onload = function(){
     main();
 }
 var asteroidSprite = new Image();
-asteroidSprite = "images/asteroid.png";
+asteroidSprite.src = "images/asteroid.png";
 asteroidSprite.onload = function(){
     main();
 }
@@ -39,8 +39,8 @@ var ship = new PlayerShip();
 function PlayerShip() {
     this.x = canvas.width / 2;
     this.y = canvas.height / 2;
-    this.width = 20;
-    this.height = 20;
+    this.width = 30;
+    this.height = 30;
     this.up = false;
     this.down = false;
     this.left = false;
@@ -59,10 +59,12 @@ function PlayerShip() {
         ctx.lineTo(0, -10);
         ctx.closePath();
         ctx.fill();
+        //ship sprite
+        ctx.drawImage(shipSprite, -this.width/2, -this.height/2, this.width, this.height);
         ctx.restore();
     }
 
-    this.moveShip = function () {
+    this.moveShip = function () { 
         this.x += this.vx;
         this.y += this.vy;
 
@@ -218,6 +220,8 @@ function Asteroid() {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.fill();
+        //draw asteroid sprite
+        ctx.drawImage(asteroidSprite, this.x-(this.radius),this.y-(this.radius), this.radius+ this.radius, this.radius+this.radius);
         ctx.restore();
     }
 }

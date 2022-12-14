@@ -50,6 +50,7 @@ function keyPressUp(e){
     if(e.keyCode == 32){
         gameOver = false;
         draw(rock, paper, scissors, rock, paper, scissors);
+        console.log(wins);
     }
 }
 
@@ -70,14 +71,14 @@ function draw(rock,paper,scissors,crock,cpaper,cscissors){
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Player Choices", canvas.width/2,100);
-    ctx.drawImage(rock, canvas.width/2 - rock.width/2 - 100, 15);
-    ctx.drawImage(paper, canvas.width/2 - paper.width/2, 15);
-    ctx.drawImage(scissors, canvas.width/2 - scissors.width/2 + 100, 15);
+    ctx.drawImage(rock, canvas.width/2 - 50 - 100, 150,100,100);
+    ctx.drawImage(paper, canvas.width/2 - 50, 150,100,100);
+    ctx.drawImage(scissors, canvas.width/2 - 50 + 100, 150,100,100);
 
     ctx.fillText("Computer Choices", canvas.width/2, 325);
-    ctx.drawImage(crock, canvas.width/2 - rock.width/2 - 100, 375);
-    ctx.drawImage(cpaper, canvas.width/2 - paper.width/2, 375);
-    ctx.drawImage(cscissors, canvas.width/2 - scissors.width/2 + 100, 375);
+    ctx.drawImage(crock, canvas.width/2 - 50 - 100, 375,100,100);
+    ctx.drawImage(cpaper, canvas.width/2 - 50, 375,100,100);
+    ctx.drawImage(cscissors, canvas.width/2 - 50 + 100, 375,100,100);
 
     ctx.fillText(result, canvas.width/2, 525);
 }
@@ -252,7 +253,7 @@ function healthCheck(){
     }
 }
 function winCheck(){
-    if(wins = 3){
+    if(wins == 3){
         gameOver = true;
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.font = "30px Arial";
