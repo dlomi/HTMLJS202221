@@ -213,7 +213,6 @@ function Asteroid() {
     this.drawAsteroid = function () {
         //commands to draw asteroids
         ctx.save();
-        //ctx.drawImage(asteroidSprite,)
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
