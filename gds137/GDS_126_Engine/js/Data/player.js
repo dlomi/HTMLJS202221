@@ -19,19 +19,19 @@ Properties:
 
 var playerData ={
 	info:{
-		src:`images/asteriaAnimation.png`
+		src:`images/spritesheet.png`
 	},
 	states:{
 		//The idle animation 
     	idle:
 		{
-			fps:15,
+			fps:3,
 			cycle:true,
 			frames:
 			[
-				{width:256, height:256, startX:0, startY:0},
-				{width:256, height:256, startX:128, startY:0},
-				{width:256, height:256, startX:128, startY:0}
+				{width:124, height:242, startX:124, startY:0},
+				{width:124, height:242, startX:248, startY:0},
+				{width:124, height:242, startX:496, startY:0}
 				
 			]
 		},
@@ -42,17 +42,17 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:256, height:128, startX:0, startY:0},
-				{width:256, height:128, startX:128, startY:0},
-				{width:256, height:128, startX:256, startY:0},
-				{width:256, height:128, startX:384, startY:0},
+				{width:124, height:242, startX:0, startY:0},
+				{width:124, height:242, startX:0, startY:0},
+				{width:124, height:242, startX:0, startY:0},
+				{width:124, height:242, startX:0, startY:0},
 				//{width:128, height:128, startX:512, startY:0}
 			]
 		},
 		//The jump animation 
 		jump:
 		{
-			fps:15,
+			fps:1,
 			cycle:false,
 			frames:
 			[
@@ -62,15 +62,15 @@ var playerData ={
 		//The crouch animation 
 		crouch:
 		{
-			fps:15,
-			cycle:true,
+			fps:1,
+			cycle:false,
 			frames:
 			[
 				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:896, startY:0}
+				//{width:128, height:128, startX:768, startY:0},
+				//{width:128, height:128, startX:768, startY:0},
+				//{width:128, height:128, startX:768, startY:0},
+				//{width:128, height:128, startX:896, startY:0}
 			]
 		},
 		//The attack animation 
