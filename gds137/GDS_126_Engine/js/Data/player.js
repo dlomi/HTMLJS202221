@@ -19,33 +19,33 @@ Properties:
 
 var playerData ={
 	info:{
-		src:`images/spritesheet.png`
+		src:`images/asteriaSpriteSheet.png`
 	},
 	states:{
 		//The idle animation 
     	idle:
 		{
-			fps:3,
+			fps:10,
 			cycle:true,
 			frames:
 			[
-				{width:124, height:242, startX:124, startY:0},
-				{width:124, height:242, startX:248, startY:0},
-				{width:124, height:242, startX:496, startY:0}
+				{width:96.95, height:250, startX:121, startY:1},
+				{width:96.95, height:250, startX:222, startY:1},
+				{width:96.95, height:250, startX:323, startY:1}
 				
 			]
 		},
 		//The walwidth:128, height:128,
 		walk:
 		{
-			fps:1,
+			fps:10,
 			cycle:true,
 			frames:
 			[
-				{width:124, height:242, startX:0, startY:0},
-				{width:124, height:242, startX:0, startY:0},
-				{width:124, height:242, startX:0, startY:0},
-				{width:124, height:242, startX:0, startY:0},
+				{width:96.95, height:244.15, startX:525, startY:1},
+				{width:115.55, height:238.40, startX:626, startY:1},
+				{width:115.55, height:241.20, startX:744, startY:1},
+				{width:100.6, height:238.45, startX:862, startY:1},
 				//{width:128, height:128, startX:512, startY:0}
 			]
 		},
@@ -56,7 +56,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:128, height:128, startX:640, startY:0}
+				{width:96.95, height:104.35, startX:424, startY:1}
 			]
 		},
 		//The crouch animation 
@@ -66,7 +66,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:128, height:128, startX:768, startY:0},
+				{width:96.95, height:104.35, startX:424, startY:1},
 				//{width:128, height:128, startX:768, startY:0},
 				//{width:128, height:128, startX:768, startY:0},
 				//{width:128, height:128, startX:768, startY:0},
@@ -76,18 +76,18 @@ var playerData ={
 		//The attack animation 
 		attack:
 		{
-			fps:3,
+			fps:1,
 			cycle:false,
 			//width:300,
 			frames:
 			[
-				{width:128, height:128, startX:1024, startY:0},
-				{width:128, height:128, startX:1024, startY:0},
-				{width:128, height:128, startX:1024, startY:0},
-				{width:128, height:128, startX:1152, startY:0},
-				{width:128, height:128, startX:1152, startY:0},
-				{width:128, height:128, startX:1152, startY:0},
-				{width:128, height:128, startX:1152, startY:0}
+				{width:128, height:128, startX:0, startY:1},
+				//{width:128, height:128, startX:1024, startY:0},
+				//{width:128, height:128, startX:1024, startY:0},
+				//{width:128, height:128, startX:1152, startY:0},
+				//{width:128, height:128, startX:1152, startY:0},
+				//{width:128, height:128, startX:1152, startY:0},
+				//{width:128, height:128, startX:1152, startY:0}
 				
 			]
 		}
