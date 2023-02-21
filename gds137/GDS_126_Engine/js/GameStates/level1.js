@@ -56,7 +56,7 @@ var levelItems=new Group();
 levelItems.add([caveBack.grid, ground, plat, cave.grid]);
 
 //Very back background
-var sky = new GameObject({width:canvas.width, height:canvas.height, color:"cyan"})
+var sky = new GameObject({width:canvas.width, height:canvas.height})
 sky.img.src = `images/sky.png`
 
 /*
@@ -240,6 +240,7 @@ gameStates[`level1`] = function()
 	rbg.x = level.x*.5;
 
 	//moves the middleground
+	// .# = percentage speed
 	bg.x = level.x*.75;
 
 	//moves the clouds
@@ -258,7 +259,7 @@ gameStates[`level1`] = function()
 	ground.color = groundPattern
 	plat.color = groundPattern
 
-	//Sets up pattern for the sky
+	//Sets up pattern for the sky --> back-background
 	var skyPattern = context.createPattern(sky.img, `repeat`);
 	//Applies pattern to sky
 	sky.color = skyPattern
