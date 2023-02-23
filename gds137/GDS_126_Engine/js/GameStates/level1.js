@@ -6,7 +6,7 @@ var friction = {x:.85,y:.97}
 var stage = new GameObject({width:canvas.width, height:canvas.height});
 
 //Avatar
-var wiz = new GameObject({width:128, height:128, spriteData:playerData}).makeSprite(playerData)
+var wiz = new GameObject({width:128, height:256, spriteData:playerData}).makeSprite(playerData)
 wiz.force=1
 
 //The ground
