@@ -57,7 +57,7 @@ levelItems.add([caveBack.grid, ground, plat, cave.grid]);
 
 //Very back background
 var sky = new GameObject({width:canvas.width, height:canvas.height})
-sky.img.src = `images/sky.png`
+sky.img.src = `images/skybg.png`
 
 /*
  	//Not used, unless you want a 4th level of paralax
@@ -71,7 +71,7 @@ rbg.img.src=`images/hills.png`
 
 //middleground
 var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canvas.height})
-bg.img.src=`images/bgfull.png`
+bg.img.src=`images/closeLevel.png`
 
 /*------------------vvBULLET STUFFvv----------------------*/
 
