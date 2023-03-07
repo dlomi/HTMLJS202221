@@ -56,7 +56,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:96.95, height:104.35, startX:424, startY:1}
+				{width:99, height:106, startX:424, startY:1}
 			]
 		},
 		//The crouch animation 
@@ -66,7 +66,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:96.95, height:104.35, startX:424, startY:1},
+				{width:99, height:106, startX:424, startY:1},
 				//{width:128, height:128, startX:768, startY:0},
 				//{width:128, height:128, startX:768, startY:0},
 				//{width:128, height:128, startX:768, startY:0},
@@ -81,7 +81,7 @@ var playerData ={
 			//width:300,
 			frames:
 			[
-				{width:128, height:128, startX:0, startY:1},
+				{width:118, height:246, startX:0, startY:1},
 				//{width:128, height:128, startX:1024, startY:0},
 				//{width:128, height:128, startX:1024, startY:0},
 				//{width:128, height:128, startX:1152, startY:0},
@@ -91,6 +91,15 @@ var playerData ={
 				
 			]
 		}
+		/*projectile:
+		{
+			fps:1,
+			cycle:false,
+			frames:
+			[
+				{width: }
+			]
+		}*/
 	}
 		
 }
