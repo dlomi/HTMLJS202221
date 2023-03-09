@@ -3,7 +3,7 @@ This file contains all of the code for the Main Menu
 ----------------------------------*/
 
 //insert x and y properties to adjust location of button 
-var startButton = new GameObject({width:200});
+var startButton = new GameObject({width:341.3, height:65, y:430});
 //startButton.img.src="images/mrt.jpg"
 
 console.log(startButton.collisionPoints.right)
