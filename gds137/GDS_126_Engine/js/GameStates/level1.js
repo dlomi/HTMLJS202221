@@ -6,7 +6,7 @@ var friction = {x:.85,y:.97}
 var stage = new GameObject({width:canvas.width, height:canvas.height});
 
 //Avatar
-var wiz = new GameObject({width:128, height:256, spriteData:playerData}).makeSprite(playerData)
+var wiz = new GameObject({width:118, height:256, spriteData:playerData}).makeSprite(playerData)
 wiz.force=1
 
 //The ground
@@ -85,10 +85,10 @@ var currentBullet = 0;
 for(let i=0; i<100; i++)
 {
 	bullets[i] = new GameObject({width:64, height:64})
-	//bullets[i].img.src="images/mrt.jpg"
+	//bullets[i].img.src="images/projectile.png"
 	bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`)
+	//bullets[i].changeState(`projectile`)
 }
 
 //console.log(bullets)

@@ -46,7 +46,6 @@ var playerData ={
 				{width:115.55, height:238.40, startX:626, startY:1},
 				{width:115.55, height:241.20, startX:744, startY:1},
 				{width:100.6, height:238.45, startX:862, startY:1},
-				//{width:128, height:128, startX:512, startY:0}
 			]
 		},
 		//The jump animation 
@@ -97,8 +96,17 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width: }
+				{width:64, height: 64, startX: , startY:0}
 			]
+		}
+		button:
+		{
+			fps:1,
+			cycle:false,
+			frames:
+			[
+				{width:341.3, height:65, startX:, startY:0}
+			] 
 		}*/
 	}
 		

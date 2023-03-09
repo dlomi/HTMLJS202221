@@ -26,12 +26,12 @@ gameStates[`menu`] =function(){
 		}
 
 		//Hover Effect Graffic
-		startButton.color = `yellow`
+		startButton.color = `lightblue`
 	}
 	else
 	{
 		//Default Button Graphic
-		startButton.color = `red`
+		startButton.color = `lavender`
 	}
 	
 	menuBackground.drawStaticImage();
