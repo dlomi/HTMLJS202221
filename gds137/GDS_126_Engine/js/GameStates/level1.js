@@ -256,11 +256,12 @@ gameStates[`level1`] = function()
 	
 	//Sets up pattern for the ground
 	var groundPattern = context.createPattern(ground.img, `repeat`);
+	var platPattern = context.createPattern(plat.img, `no-repeat`);
 	
 	//Applies pattern to ground and platform
 
 	ground.color = groundPattern
-	plat.color = groundPattern
+	plat.color = platPattern
 
 	//Sets up pattern for the sky --> back-background
 	var skyPattern = context.createPattern(sky.img, `repeat`);
