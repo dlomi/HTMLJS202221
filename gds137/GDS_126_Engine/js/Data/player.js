@@ -98,15 +98,6 @@ var playerData ={
 			[
 				{width:64, height: 64, startX: , startY:0}
 			]
-		}
-		button:
-		{
-			fps:1,
-			cycle:false,
-			frames:
-			[
-				{width:341.3, height:65, startX:, startY:0}
-			] 
 		}*/
 	}
 		
