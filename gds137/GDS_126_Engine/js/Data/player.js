@@ -19,7 +19,7 @@ Properties:
 
 var playerData ={
 	info:{
-		src:`images/asteriaSpriteSheet.png`
+		src:`images/asteriaSprite.png`
 	},
 	states:{
 		//The idle animation 
@@ -29,9 +29,9 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:96.95, height:250, startX:121, startY:1},
-				{width:96.95, height:250, startX:222, startY:1},
-				{width:96.95, height:250, startX:323, startY:1}
+				{width:96.95, height:250, startX:118, startY:0},
+				{width:96.95, height:250, startX:217, startY:0},
+				{width:96.95, height:250, startX:316, startY:0}
 				
 			]
 		},
@@ -42,10 +42,10 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:96.95, height:244.15, startX:525, startY:1},
-				{width:115.55, height:238.40, startX:626, startY:1},
-				{width:115.55, height:241.20, startX:744, startY:1},
-				{width:100.6, height:238.45, startX:862, startY:1},
+				{width:96.95, height:244.15, startX:569, startY:1},
+				{width:115.55, height:238.40, startX:668, startY:1},
+				{width:115.55, height:241.20, startX:784, startY:1},
+				{width:100.6, height:238.45, startX:900, startY:1},
 			]
 		},
 		//The jump animation 
@@ -55,7 +55,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:99, height:106, startX:424, startY:1}
+				{width:99, height:106, startX:415, startY:0},
 			]
 		},
 		//The crouch animation 
@@ -65,11 +65,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:99, height:106, startX:424, startY:1},
-				//{width:128, height:128, startX:768, startY:0},
-				//{width:128, height:128, startX:768, startY:0},
-				//{width:128, height:128, startX:768, startY:0},
-				//{width:128, height:128, startX:896, startY:0}
+				{width:99, height:106, startX:415, startY:0},
 			]
 		},
 		//The attack animation 
@@ -80,7 +76,7 @@ var playerData ={
 			//width:300,
 			frames:
 			[
-				{width:118, height:246, startX:0, startY:1},
+				{width:118, height:246, startX:0, startY:0},
 				//{width:128, height:128, startX:1024, startY:0},
 				//{width:128, height:128, startX:1024, startY:0},
 				//{width:128, height:128, startX:1152, startY:0},
@@ -89,16 +85,16 @@ var playerData ={
 				//{width:128, height:128, startX:1152, startY:0}
 				
 			]
-		}
-		/*projectile:
+		},
+		projectile:
 		{
 			fps:1,
 			cycle:false,
 			frames:
 			[
-				{width:64, height: 64, startX: , startY:0}
+				{width:64, height: 64, startX:514, startY:0}
 			]
-		}*/
+		}
 	}
 		
 }

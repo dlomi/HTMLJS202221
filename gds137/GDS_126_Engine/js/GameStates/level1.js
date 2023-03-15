@@ -85,10 +85,10 @@ var currentBullet = 0;
 for(let i=0; i<100; i++)
 {
 	bullets[i] = new GameObject({width:64, height:64})
-	//bullets[i].img.src="images/projectile.png"
+	bullets[i].img.src="images/projectile.png"
 	bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
-	//bullets[i].changeState(`projectile`)
+	bullets[i].changeState(`projectile`)
 }
 
 //console.log(bullets)
@@ -164,8 +164,8 @@ gameStates[`level1`] = function()
 			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 96) ;
 			bullets[currentBullet].y = wiz.y - 40;
 			bullets[currentBullet].dir = wiz.dir;
+			sounds.play(`attack`,0)
 			
-			sounds.play(`magic-mallet`,0)
 
 			currentBullet++;
 			if(currentBullet>=bullets.length)
