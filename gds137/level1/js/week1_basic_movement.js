@@ -4,7 +4,7 @@ var canvas;
 var context;
 var timer;
 //1000 ms or 1 second / FPS
-var interval = 1000/60;
+var mainTimer = setInterval(animate, 1000/60);
 
 
 	//Set Up the Canvas
@@ -23,7 +23,7 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	//Move the Player
-	ball.x += 0;
+	ball.x += 4;
 	
 	//Update the Screen
 	ball.draw();
