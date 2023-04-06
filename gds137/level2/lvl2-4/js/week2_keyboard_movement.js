@@ -73,7 +73,7 @@ function animate()
 		ball.vy = -ball.vy;
 
 	}
-
+	
 	
 	//Update the Screen
 	player.drawRect();
