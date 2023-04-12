@@ -7,12 +7,16 @@ var timer;
 var interval = 1000/60;
 var player;
 
+var prevX;
+
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
 	player = new GameObject();
+	player.x = 100;
+
 	var ball = new GameObject();
 
 	ball.vx = 4;
@@ -73,7 +77,14 @@ function animate()
 		ball.vy = -ball.vy;
 
 	}
-	
+	if(ball.hitTestObject(player))
+	{
+		player.x = prevX;
+	}
+	else
+	{
+		prevX = player.x;
+	}
 	
 	//Update the Screen
 	player.drawRect();
