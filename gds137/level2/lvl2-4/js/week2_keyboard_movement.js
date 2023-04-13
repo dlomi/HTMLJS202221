@@ -7,7 +7,7 @@ var timer;
 var interval = 1000/60;
 var player;
 
-var prevX;
+
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -17,10 +17,12 @@ var prevX;
 	player = new GameObject();
 	player.x = 100;
 
-	var ball = new GameObject();
 
-	ball.vx = 4;
-	ball.vy = 4;
+	ball.vx = -4;
+	ball.vy = 0;
+
+	ball.height = 50;
+	ball.width = 50;
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -77,16 +79,28 @@ function animate()
 		ball.vy = -ball.vy;
 
 	}
-	if(ball.hitTestObject(player))
+
+
+
+	if(player.hitTestObject(ball))
 	{
-		player.x = prevX;
-	}
-	else
-	{
-		prevX = player.x;
+		ball.x = player.x + player.width/2 + ball.width/2
+		ball.vx = 4;
+		if(ball.y < player.y - player.height/6)
+		{
+			ball.vy = -4;
+		}
+		if(ball.y > player.y + player.height/6)
+		{
+			ball.vy = 4;
+		}
 	}
 	
+
+
+
 	//Update the Screen
+
 	player.drawRect();
 	ball.drawCircle();
 }
