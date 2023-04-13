@@ -80,6 +80,23 @@ function animate()
 
 	}
 
+	if (player.hitTestObject(ball))
+	{
+		if(ball.y < player.y - 30)
+		{
+			ball.vx = 4;
+			ball.vy = -4;
+		}
+		if(ball.y < player.y - 60)
+		{
+			ball.vx = -ball.vx;
+		}
+		if(ball.y < player.y - 150)
+		{
+			ball.vx = 4;
+			ball.vy = -4;
+		}
+	}
 
 
 	if(player.hitTestObject(ball))
