@@ -2,7 +2,8 @@
 
 var w = false;
 var s = false;
-var a = false;
+
+
 
 //Add Event Listeners
 document.addEventListener("keydown", press);
@@ -23,10 +24,12 @@ function press(e)
 	{
 		s = true;
 	}
-	if(keyCode == 97)
+	if(e.keyCode == 38)
 	{
-		a = true;
+		
 	}
+
+
 
 }
 
@@ -44,9 +47,6 @@ function release(e)
 	{
 		s = false;
 	}
-	if(e.keyCode == 97)
-	{
-		a = false;
-	}
+
 
 }

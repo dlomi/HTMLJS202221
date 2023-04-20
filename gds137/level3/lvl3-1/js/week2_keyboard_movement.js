@@ -18,6 +18,7 @@ var playerTwo;
 	player = new GameObject();
 	player.x = 100;
 	playerTwo = new GameObject();
+	playerTwo.x = 100;
 
 	
 	
@@ -42,20 +43,18 @@ function animate()
 	{
 		console.log("Moving Up");
 		player.y -= 4;
+	
 	}
 	if(s)
 	{
 		console.log("Moving Down");
 		player.y += 4;
 	}
-	if(a)
-	{
-		console.log("moving up")
-		playerTwo.y -= 4;
-	}
+	
 
 
 
+	//prevents players from leaving the screen
 	if(player.y < player.height/2)
 	{
 		player.y = player.height/2
@@ -87,6 +86,7 @@ function animate()
 		ball.y = canvas.height/2
 		
 	}
+	//top boundary of canvas
 	if(ball.y < ball.height/2)
 	{
 		ball.y = ball.height/2
@@ -94,6 +94,7 @@ function animate()
 		ball.vy = 10;
 
 	}
+	//bottom boundary of canvas
 	if (ball.y > canvas.height - ball.height/2)
 	{
 		ball.y = canvas.height - ball.height/2
