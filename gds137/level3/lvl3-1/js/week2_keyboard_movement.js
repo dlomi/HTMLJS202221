@@ -44,6 +44,15 @@ function animate()
 	
 	ball.x += ball.vx;
 	ball.y += ball.vy;
+	context.save();
+	context.strokeStyle = "blue";
+	context.beginPath();
+	context.moveTo(canvas.width/2, 1);
+	context.lineTo(canvas.width/2, 800);
+	context.closePath();
+	context.lineWidth = 3;
+	context.stroke();
+	context.restore();
 
 	if(w)
 	{
@@ -175,7 +184,7 @@ function animate()
 	ball.drawCircle();
 	context.font = "20px Arial";
 	context.textAlign = "center";
-	context.fillText("Player 1  |  Player 2", 480, 30); 
-	context.fillText(p1Wins + "-" + p2Wins, 480, 70);
+	context.fillText("Player 1  |  Player 2", 511, 30); 
+	context.fillText(p1Wins + "-" + p2Wins, 511, 70);
 }
 
