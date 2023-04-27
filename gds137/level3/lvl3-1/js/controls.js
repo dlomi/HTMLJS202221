@@ -2,6 +2,8 @@
 
 var w = false;
 var s = false;
+var upArrow = false;
+var downArrow = false;
 
 
 
@@ -26,9 +28,12 @@ function press(e)
 	}
 	if(e.keyCode == 38)
 	{
-		
+		upArrow = true;
 	}
-
+	if(e.keyCode == 40)
+	{
+		downArrow = true;
+	}
 
 
 }
@@ -47,6 +52,12 @@ function release(e)
 	{
 		s = false;
 	}
-
-
+	if(e.keyCode == 38)
+	{
+		upArrow = false;
+	}
+	if(e.keyCode == 40)
+	{
+		downArrow = false;
+	}
 }

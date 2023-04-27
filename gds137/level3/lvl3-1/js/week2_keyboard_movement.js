@@ -16,14 +16,18 @@ var playerTwo;
 	
 	//Instantiate the Player
 	player = new GameObject();
-	player.x = 100;
+	player.x = 10;
 	playerTwo = new GameObject();
-	playerTwo.x = 100;
+	playerTwo.x = 1024;
 	playerTwo.color = "red";
 	
+	player.height = 140;
+	player.width = 19;
+	playerTwo.height = 140;
+	playerTwo.width = 30;
 	
 	
-	ball.vx = -4;
+	ball.vx = 4;
 	ball.vy = 0;
 
 	ball.height = 50;
@@ -51,8 +55,15 @@ function animate()
 		console.log("Moving Down");
 		player.y += 4;
 	}
-	
 
+	if(upArrow)
+	{
+		playerTwo.y -= 4;
+	}
+	if(downArrow)
+	{
+		playerTwo.y += 4;
+	}
 
 
 	//prevents players from leaving the screen
@@ -81,7 +92,7 @@ function animate()
 		ball.vx = 4;
 	}
 	//right boundary of canvas
-	if(ball.x > canvas.width - ball.width/2)
+	if(ball.x > canvas.width + ball.width/2)
 	{
 		ball.x = canvas.width/2
 		ball.y = canvas.height/2
@@ -120,23 +131,7 @@ function animate()
 			ball.vy = -4;
 		}
 	}
-	if (playerTwo.hitTestObject(ball))
-	{
-		if(ball.y < playerTwo.y - 30)
-		{
-			ball.vx = 4;
-			ball.vy = -4;
-		}
-		if(ball.y < playerTwo.y - 60)
-		{
-			ball.vx = -ball.vx;
-		}
-		if(ball.y < playerTwo.y - 150)
-		{
-			ball.vx = 4;
-			ball.vy = -4;
-		}
-	}
+
 
 
 	if(player.hitTestObject(ball))
@@ -154,8 +149,8 @@ function animate()
 	}
 	if(playerTwo.hitTestObject(ball))
 	{
-		ball.x = playerTwo.x + playerTwo.width/2 + ball.width/2
-		ball.vx = 4;
+		ball.x = playerTwo.x - playerTwo.width/2 - ball.width/2
+		ball.vx = -4;
 		if(ball.y < playerTwo.y - playerTwo.height/6)
 		{
 			ball.vy = -4;
