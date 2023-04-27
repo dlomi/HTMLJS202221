@@ -8,6 +8,8 @@ var interval = 1000/60;
 var player;
 var playerTwo;
 
+var p1Wins = 0;
+var p2Wins = 0;
 
 
 	//Set Up the Canvas
@@ -25,7 +27,6 @@ var playerTwo;
 	player.width = 19;
 	playerTwo.height = 140;
 	playerTwo.width = 30;
-	
 	
 	ball.vx = 4;
 	ball.vy = 0;
@@ -89,13 +90,17 @@ function animate()
 	if(ball.x < -ball.width/2)
 	{
 		ball.x = canvas.width/2
-		ball.vx = 4;
+		ball.y = canvas.height/2
+		console.log("p2 score +1");
+		p2Wins++;
 	}
 	//right boundary of canvas
 	if(ball.x > canvas.width + ball.width/2)
 	{
 		ball.x = canvas.width/2
 		ball.y = canvas.height/2
+		console.log("p1 score +1");
+		p1Wins++;
 		
 	}
 	//top boundary of canvas
@@ -168,5 +173,9 @@ function animate()
 	player.drawRect();
 	playerTwo.drawRect();
 	ball.drawCircle();
+	context.font = "20px Arial";
+	context.textAlign = "center";
+	context.fillText("Player 1  |  Player 2", 480, 30); 
+	context.fillText(p1Wins + "-" + p2Wins, 480, 70);
 }
 
