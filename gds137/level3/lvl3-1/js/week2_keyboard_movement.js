@@ -11,6 +11,8 @@ var playerTwo;
 var p1Wins = 0;
 var p2Wins = 0;
 
+var img=document.getElementById("ric");
+
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -54,6 +56,7 @@ function animate()
 	context.stroke();
 	context.restore();
 
+	context.drawImage(img, ball.x + -25, ball.y, ball.width, ball.height);
 	if(w)
 	{
 		console.log("Moving Up");
@@ -181,7 +184,7 @@ function animate()
 
 	player.drawRect();
 	playerTwo.drawRect();
-	ball.drawCircle();
+	//ball.drawCircle();
 	context.font = "20px Arial";
 	context.textAlign = "center";
 	context.fillText("Player 1  |  Player 2", 511, 30); 
