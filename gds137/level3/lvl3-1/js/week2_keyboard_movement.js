@@ -19,7 +19,8 @@ var playerTwo;
 	player.x = 100;
 	playerTwo = new GameObject();
 	playerTwo.x = 100;
-
+	playerTwo.color = "red";
+	
 	
 	
 	ball.vx = -4;
