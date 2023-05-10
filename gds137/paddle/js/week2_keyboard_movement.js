@@ -7,6 +7,8 @@ var timer;
 var interval = 1000/60;
 var player;
 var gravity = 1;
+var friction = 0.85;
+var vx = 0;
 
 var score = 0;
 
@@ -17,17 +19,15 @@ var score = 0;
 	
 	//Instantiate the Player
 	player = new GameObject();
-	player.x = canvas.width/2;
 	player.color = "#00ffff";
+	player.force = 2;
 	player.y = 550;
 	player.height = 40;
 	player.width = 250;
-
 	
 	ball.vx = 5;
-	ball.vy += gravity;
-
-
+	ball.vy=0;
+	ball.force = 2;
 	ball.height = 70;
 	ball.width = 70;
 	ball.color = "#ff00ff";
@@ -41,31 +41,24 @@ function animate()
 {
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
-	
-	context.save();
-	context.strokeStyle = "black";
-	context.beginPath();
-	context.moveTo(canvas.width/2, 300);
-	context.lineTo(canvas.width/2, 550);
-	context.closePath();
-	context.lineWidth = 1;
-	context.stroke();
-	context.restore();
-
-	ball.x += ball.vx;
-	ball.y += ball.vy;
-
-
 
 	if(a)
 	{
-		player.x -= 4;
+		//player.x -= 4;
+		player.vx += player.ax * -player.force;
 	}
 	if(d)
 	{
-		player.x += 4;
+		//player.x += 4;
+		player.vx += player.ax * player.force;
 	}
 
+	ball.vy += gravity;
+	ball.x += ball.vx;
+	ball.y += ball.vy;
+
+	player.vx *= friction;
+	player.x += player.vx;
 
 	//prevents players from leaving the screen
 	if(player.x < player.width/2)
@@ -80,7 +73,7 @@ function animate()
 
 
 	//left boundary of canvas
-	if(ball.x < -ball.width/2)
+	if(ball.x < ball.width/2)
 	{
 		ball.x = ball.width/2
 		ball.vx = -ball.vx;
@@ -90,12 +83,12 @@ function animate()
 	if(ball.x > canvas.width - ball.width/2)
 	{
 		ball.vx = -ball.vx;
-
+		ball.x = canvas.width - ball.width/2
 	}
 	//top boundary of canvas
-	if(ball.y < ball.height/2)
+	if(ball.y < ball.width/2)
 	{
-		ball.y = ball.height/2
+		ball.y = ball.width/2
 		ball.vy = -ball.vy;
 	
 	}
@@ -103,43 +96,39 @@ function animate()
 	if (ball.y > canvas.height - ball.height/2)
 	{
 		ball.y = canvas.height - ball.height/2
-		//ball.vy = -vy*.67;
+		ball.vy = -ball.vy * .67
 		score = 0;
-	
 	}
 
-	/*if (player.hitTestObject(ball))
+	if (player.x < 0 + player.width/2)
 	{
-		if(ball.y < player.x - 30)
-		{
-			ball.vx = 4;
-			ball.vy = -4;
-		}
-		if(ball.y < player.x - 60)
-		{
-			ball.vx = -ball.vx;
-		}
-		if(ball.y < player.x - 150)
-		{
-			ball.vx = 4;
-			ball.vy = -4;
-		}
-	}*/
-
-
+		player.x = player.width/2;
+	}
+	if (player.x > canvas.width - player.width/2)
+	{
+		player.x = canvas.width - player.width/2;
+	}
 
 	if(player.hitTestObject(ball))
 	{
-		ball.x = player.x + player.width/2 + ball.width/2
-		ball.vx = 4;
+		ball.y = player.y - player.height/2 - ball.height/2
+		ball.vy = -35;
 		score++;
-		if(ball.y < player.y - player.height/6)
+		if(ball.x < player.x - player.width/6)
 		{
-			ball.vy = -4;
+			ball.vx =-ball.force
 		}
-		if(ball.y > player.y + player.height/6)
+		if(ball.x > player.x + player.width/6)
 		{
-			ball.vy = 4;
+			ball.vx = ball.force
+		}
+		if(ball.x > player.x + player.width/3)
+		{
+			ball.vx = ball.force * 5
+		}
+		if(ball.x < player.x - player.width/3)
+		{
+			ball.vx = -ball.force * 5
 		}
 	}
 
@@ -156,6 +145,16 @@ function animate()
 	context.textAlign = "left";
 	context.color = "#555555";
 	context.fillText("Score: " + score, 80, 25); 
+
+	context.save();
+	context.strokeStyle = "black";
+	context.beginPath();
+	context.moveTo(ball.x, ball.y);
+	context.lineTo(player.x, player.y);
+	context.closePath();
+	context.lineWidth = 1;
+	context.stroke();
+	context.restore();
 
 }
 

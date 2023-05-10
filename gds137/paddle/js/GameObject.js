@@ -45,7 +45,7 @@ function GameObject(x,y,w,h,color)
 	this.vy = 0;
 
 
-	
+	this.ax = 1;
 
 	
 	//This draws the player to the screen
