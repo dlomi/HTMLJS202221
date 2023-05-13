@@ -124,6 +124,8 @@ function animate()
 	while(platform1.hitTestPoint(player.left()))
 	{
 		player.x++;
+		platform1.x--;
+		platform1.vx = 0;
 	}
 	
 	
