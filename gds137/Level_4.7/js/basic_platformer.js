@@ -131,7 +131,7 @@ function animate()
 		player.x++;
 		player.vx = 0;
 	}
-	while(platform1.hitTestPoint(player.right()) && player.vx >=0)
+/*	while(platform1.hitTestPoint(player.right()) && player.vx >=0)
 	{
 		player.x--;
 		player.vx = 0;
@@ -141,20 +141,19 @@ function animate()
 		player.x--;
 		player.vx = 0;
 	}
-	
+	*/
 	//---------Objective: Let Me Out!---------------------------------------------------------------------------------------------------- 
 	//---------Run this program first.
 	//---------Write a condition so that the player opens the yellow door to get the pearl-----------------------------------------
 
-
+	while(platform1.hitTestPoint(player.right()) && player.vx >= 0)
+	{
+		platform1.y = 10000;
+	}
 	if(player.hitTestObject(goal))
 	{
 		goal.y = 10000;
 	}
-	
-
-	
-
 	
 	
 	
