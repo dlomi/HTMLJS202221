@@ -146,16 +146,12 @@ function animate()
 	//---------Run this program first.
 	//---------Write a condition so that the player opens the yellow door to get the pearl-----------------------------------------
 
-	
-	
 
 	if(player.hitTestObject(goal))
 	{
 		goal.y = 10000;
 	}
 	
-
-
 
 	
 
@@ -171,6 +167,7 @@ function animate()
 	
 	//Show hit points
 	player.drawDebug();
+	//platform1.drawDebug();
 	goal.drawCircle();
 }
 
