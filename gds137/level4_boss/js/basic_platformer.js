@@ -5,7 +5,6 @@ var context;
 var timer;
 var interval;
 var player;
-var health;
 
 
 	canvas = document.getElementById("canvas");
@@ -14,14 +13,14 @@ var health;
 	player = new GameObject();
 	player.color = "#ff00ff";
 	player.y = 700;
-	player.x = 100;
-	player.height = 100;
-	player.width = 100;
+	player.x = 50;
+	player.height = 50;
+	player.width = 50;
 	player.vx = 4;
 	player.vy = 0;
 
 	platform0 = new GameObject();
-		platform0.width = canvas.width;
+		platform0.width = canvas.width - 300;
 		platform0.height = 300;
 		platform0.x = platform0.width/2;
 		platform0.y = canvas.height - platform0.height/2;
@@ -30,20 +29,34 @@ var health;
 	platform1 = new GameObject();
 		platform1.width = 100;
 	
-		platform1.x = 400;
+		platform1.x = 200;
 		platform1.y = 450;
 		platform1.color = "#33ff66";
 
-	/*platform2 = new GameObject();
-		platform2.width = 200;
-		platform2.x = canvas.width-60;
-		platform2.y = 300;
-		platform2.color = "#66ff33";*/
-		
-	
+	platform2 = new GameObject();
+		platform2.width = 100;
+		platform2.height = 200;
+		platform2.x = 400;
+		platform2.y = 400;
+		platform2.color = "#33ff66";
 
-	var fX = .85;
-	var fY = .97;
+	platform3 = new GameObject();
+		platform3.width = canvas.width - 100;
+		platform3.height = 300;
+		platform3.x = 1300;
+		platform3.y = canvas.height - platform3.height/2;
+		platform3.color = "#66ff33";
+		
+	healthBar = new GameObject();
+		healthBar.width = 500;
+		healthBar.height = 20;
+		healthBar.x = 500;
+		healthBar.y = 30;
+		healthBar.color = "#ff0000";
+		
+
+
+
 	
 	var gravity = 1;
 
@@ -52,6 +65,7 @@ var health;
 
 function animate()
 {
+	healthBar.width -= 10 && healthBar.width >=0;
 	
 	context.clearRect(0,0,canvas.width, canvas.height);	
 
@@ -73,6 +87,7 @@ function animate()
 		player.y--;
 		player.vy = 0;
 		player.canJump = true;
+		player.color = "#ff00ff";
 	}
 	while(platform0.hitTestPoint(player.left()) && player.vx <=0)
 	{
@@ -100,24 +115,82 @@ function animate()
 		player.y--;
 		player.vy = 0;
 		player.color = "red";
+		healthBar.width -= 10 && healthBar.width >=0;
 	}
-/*	while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
+	while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
 	{
 		player.y--;
 		player.vy = 0;
 		player.canJump = true;
-	}
-*/
 
+		
+	}
+
+	while(platform2.hitTestPoint(player.right()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.color = "red";
+		healthBar.width -= 10 && healthBar.width >=0;
+	
+	}
+
+
+	while(platform3.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.canJump = true;
+		player.color = "#ff00ff";
+	}
 
 	
 	
 	platform0.drawRect();
 	platform1.drawRect();
-//	platform2.drawRect();
+	platform2.drawRect();
+	platform3.drawRect();
+
 
 	//Show hit points
-	player.drawCircle();
 
+
+
+	if(player.x > canvas.width - player.width/2) //right boundary
+	{
+		/*healthBar.width -= healthBar.width;
+		context.font = "100px Arial";
+		context.textAlign = "center";
+		context.fillText("Game Over", canvas.width/2, canvas.height/2); */
+		//context.clearRect(0,0, canvas.width, canvas.height);
+		platform0.drawRect();
+		platform1.drawRect();
+		platform2.drawRect();
+		platform3.drawRect();
+		player.x = 100;
+
+
+	} 
+	if(player.y > canvas.height - player.height/2) //bottom boundary
+	{
+		healthBar.width -= 10;
+		player.y = platform3.y - player.height/2;
+
+	}
+	while(healthBar.width <= 1) 
+	{
+		context.clearRect(0,0, canvas.width, canvas.height)
+		player.color = "#ff0000";
+		player.drawRect();
+		player.vx = 0;
+
+		context.font = "50px Arial";
+		context.textAlign = "center";
+		context.fillText("Game Over", canvas.width/2, canvas.height/2); 
+		//context.fillText("You weren't there, you're a square", canvas.width/2, 600);
+	}
+	healthBar.drawRect();
+	player.drawCircle();
 	//goal.drawCircle();
+	
 }
